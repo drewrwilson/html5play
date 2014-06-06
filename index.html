@@ -1,13 +1,85 @@
-<html>
+
+
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <title></title>
+    <meta charset="utf-8">
+    <meta https-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Starter Template for Bootstrap</title>
+
+    <!-- Stylesheet -->
+    <!-- <link rel="stylesheet" href="main.css"> -->
+    <style>
+      body {
+        margin-top: 50px;
+        padding-top: 50px;
+      }
+      .navbar-brand { font-size: bold;}
+    </style>
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
   </head>
+
   <body>
-    <form id="form_id" action="index.html" method="post">
-      <input type="file" accept="image/*" capture="camera">
-      <input type="submit" name="some_name" value="">
-    </form>
+
+    <div class="container">
+
+      <div class="starter-template">
+        <h1>Upload a photo</h1>
+        <div style="padding:20px">
+          <div id="location">
+            Click the button for your location
+          </div>
+          <p style="padding:20px">
+            <input type="file" accept="image/*" capture="camera">
+            <br><br>
+            <button name="button" class="btn btn-primary" onClick="getLocation()">Get location</button>
+
+          </p>
+        </div>
+      </div>
+
+    </div><!-- /.container -->
 
 
-  </body>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="httpss://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="httpss://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="httpss://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <script>
+    var x = document.getElementById("location");
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+    function showPosition(position) {
+        x.innerHTML = "Latitude: " + position.coords.latitude +
+        "<br>Longitude: " + position.coords.longitude;
+    }
+    </script>
+
+    </body>
 </html>
